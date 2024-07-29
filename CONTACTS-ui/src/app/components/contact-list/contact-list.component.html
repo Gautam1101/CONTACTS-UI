@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header">
+      <a routerLink="/add" class="btn btn-new float-left">New</a>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of contacts">
+            <td>{{ contact.id }}</td>
+            <td>{{ contact.firstName }}</td>
+            <td>{{ contact.lastName }}</td>
+            <td>{{ contact.email }}</td>
+            <td>
+              <a [routerLink]="['/edit', contact.id]" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+            <td>
+              <button (click)="deleteContact(contact.id)" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
